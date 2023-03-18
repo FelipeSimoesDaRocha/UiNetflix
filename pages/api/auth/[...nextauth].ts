@@ -9,8 +9,8 @@ import prismadb from '@/libs/prismadb';
 export default NextAuth({
     providers: [
         GithubProvider({
-            clientId: process.env.GITHUB_ID || '',
-            clientSecret: process.env.GITHUB_SECRET || '',
+            clientId: process.env.GITHUB_CLIENT_ID || '',
+            clientSecret: process.env.GITHUB_CLIENT_SECRET || '',
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID || '',
@@ -44,7 +44,10 @@ export default NextAuth({
                     throw new Error('Email does not exist');
                 }
 
-                const isCorrectPassword = await compare(credentials.password, user.hashedPassword);
+                const isCorrectPassword = await compare(
+                    credentials.password,
+                    user.hashedPassword
+                );
 
                 if (!isCorrectPassword) {
                     throw new Error('Incorrect password');
