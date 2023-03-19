@@ -1,7 +1,16 @@
 {
-  "name": "my-app",
+  "name": "ui-netflix",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Felipe simões da rocha",
+    "email": "felipe.simoesdarocha@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FelipeSimoesDaRocha/UiNetflix"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
