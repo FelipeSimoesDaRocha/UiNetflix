@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/** @type {import('jest').Config} */
+
 // jest.config.js
 const nextJest = require('next/jest');
-const createJestConfig = nextJest({ dir: './' });
+const createJestConfig = nextJest({ dir: './src' });
 
-/** @type {import('jest').Config} */
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleDirectories: ['node_modules', 'src'],
@@ -15,7 +17,7 @@ const customJestConfig = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts', 'src/**/*.tsx'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
   globals: {},
   setupFiles: [],
